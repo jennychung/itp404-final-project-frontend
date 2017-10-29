@@ -1,50 +1,124 @@
-# finalproject
+Hello!
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+<!--Who is the primary audience?-->
+People who want to be educated in the news about different topics and areas; readers of the New York Times.
 
-## Prerequisites
+<!--What problem are you trying to solve?-->
+Addressing the problem that people are often constrained to only a few topics about only the United States. My project will show headlines from the New York Times through a worldwide perspective regarding different subjects.
 
-You will need the following things properly installed on your computer.
+<!--How will the project requirements be fulfilled?-->
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+API endpoint:
 
-## Installation
+   GET saved digest 
+        request: /saved
+        response: list of saved
+   GET Semantic API
+   GET Top Stories API
+   GET Google Maps JavaScript API
+        HeatmapLayer
+        
+   POST: today's digest 
+        request: /saved
+        response: save to list
+   POST: like 
+        request: /liked/1
+        response: like the post
+   UPDATE: remove like 
+        request: /liked/1
+        response: remove like from post
+   DELETE: remove item from today's digest
+        request: /saved/1
+        response: remove from saved list
+   
 
-* `git clone <repository-url>` this repository
-* `cd finalproject`
-* `npm install`
+<!--Request payloads-->
+    Semantic API:
+        Name: Requests all fields for the concept with concept_type ='nytd_geo' and concept_name='Kansas'.
 
-## Running / Development
+             <!--        http://api.nytimes.com/svc/semantic/v2/concept/name/nytd_geo/Kansas?fields=all&api-key=your-API-key-->
+    
+    Top Stories API: (is a request)
+    <!--            http://api.nytimes.com/svc/topstories/v2/{section}.{response-format}?api-key={your-api-key}-->
+    
+<!--Response payloads.-->
+    Semantic:
+        concept_name (nytd_geo)
+        latitude
+        longitude
+        
+    Top Stories API:
+        results: [{
+            section
+            subsection
+            title
+            abstract
+            url
+            byline
+            published_date
+        geo_facet
+        multimedia:[{
+            url
+            }]
+        }]
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+<!--Create at least 2 routes-->
+    Saved Digest
+    Home (Map)
+    Articles
 
-### Code Generators
+<!--Add the HTML structure of the app-->
+    -header
+    -navigation
+    -sidebar
+    -footer
+    
+<!--Loader:-->
+https://codepen.io/joshy/pen/eNvZyN
+https://codepen.io/havardob/pen/VjjJey
 
-Make use of the many generators for code, try `ember help generate` for more details
 
-### Running Tests
 
-* `ember test`
-* `ember test --server`
+<!--PROJECT REQUIREMENTS-->
+Tackle the app layout
+At least 3 client side routes
+At least 1 GET, 1 POST, 1 PUT or PATCH, and 1 DELETE AJAX request
+Use of a CSS loading indicator for when AJAX requests are processing
+Each page has a unique title using this addon
+3 practical acceptance tests
+3 practical integration tests
+Cleanly formatted code. Don’t just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), consistent spacing, and readable variable and function names.
+Your project should be styled so that it presents a good user experience and looks organized and professional.
+Frontend and API are deployed to Heroku
+Travis CI integration with all tests passing
+Notifications using Toastr
+a success notification when something is successfully updated, deleted, or created
+an error notification when an AJAX call fails
 
-### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+<!--API NOTES FOR SELF-->
+Semantic API:
+-associate articles with a location (but has to be searched?)
+-has longitude & latitude
 
-### Deploying
+"geocodes": [
+        {
+          "geocode_id": 540,
+          "concept_id": 26120,
+          "concept_name": "Kansas",
+          "is_times_tag": 1,
+          "concept_status": "Active",
+          "geoname_id": 4273857,
+          "name": "Kansas",
+          "latitude": 38.500289,
+          "longitude": -98.500627,
+          "elevation": 545,
+          "country_code": "US",
+          "country_name": "United States"
 
-Specify what it takes to deploy your app.
 
-## Further Reading / Useful Links
+Top Stories API:
+geo_facet
 
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+Newswire API:
+-recent news -> geo_facet -> convert geo_facet 
