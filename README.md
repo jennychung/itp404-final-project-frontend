@@ -1,14 +1,17 @@
 Hello!
 
-<!--Who is the primary audience?-->
+<b> Who is the primary audience? </b>
+
 People who want to be educated in the news about different topics and areas; readers of the New York Times.
 
-<!--What problem are you trying to solve?-->
+<b> What problem are you trying to solve? </b>
+
 Addressing the problem that people are often constrained to only a few topics about only the United States. My project will show headlines from the New York Times through a worldwide perspective regarding different subjects.
 
-<!--How will the project requirements be fulfilled?-->
+<b> How will the project requirements be fulfilled? </b>
 
-API endpoint:
+
+<b> API endpoint: </b>
 
    GET saved digest 
         request: /saved
@@ -32,22 +35,24 @@ API endpoint:
         response: remove from saved list
    
 
-<!--Request payloads-->
-    Semantic API:
+<b> Request payloads </b>
+
+   Semantic API:
         Name: Requests all fields for the concept with concept_type ='nytd_geo' and concept_name='Kansas'.
 
-             <!--        http://api.nytimes.com/svc/semantic/v2/concept/name/nytd_geo/Kansas?fields=all&api-key=your-API-key-->
+   http://api.nytimes.com/svc/semantic/v2/concept/name/nytd_geo/Kansas?fields=all&api-key=your-API-key
     
-    Top Stories API: (is a request)
-    <!--            http://api.nytimes.com/svc/topstories/v2/{section}.{response-format}?api-key={your-api-key}-->
+   Top Stories API: (is a request)
+   http://api.nytimes.com/svc/topstories/v2/{section}.{response-format}?api-key={your-api-key}
     
-<!--Response payloads.-->
-    Semantic:
+<b> Response payloads </b>
+
+   Semantic:
         concept_name (nytd_geo)
         latitude
         longitude
         
-    Top Stories API:
+   Top Stories API:
         results: [{
             section
             subsection
@@ -62,24 +67,19 @@ API endpoint:
             }]
         }]
 
-<!--Create at least 2 routes-->
-    Saved Digest
-    Home (Map)
-    Articles
+<b> Create at least 2 routes </b>
 
-<!--Add the HTML structure of the app-->
-    -header
-    -navigation
-    -sidebar
-    -footer
-    
-<!--Loader:-->
+   Saved Digest
+   Home (Map)
+   Articles
+
+Loader:
 https://codepen.io/joshy/pen/eNvZyN
 https://codepen.io/havardob/pen/VjjJey
 
 
 
-<!--PROJECT REQUIREMENTS-->
+PROJECT REQUIREMENTS
 Tackle the app layout
 At least 3 client side routes
 At least 1 GET, 1 POST, 1 PUT or PATCH, and 1 DELETE AJAX request
@@ -96,7 +96,7 @@ a success notification when something is successfully updated, deleted, or creat
 an error notification when an AJAX call fails
 
 
-<!--API NOTES FOR SELF-->
+API NOTES FOR SELF
 Semantic API:
 -associate articles with a location (but has to be searched?)
 -has longitude & latitude
